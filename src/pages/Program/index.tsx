@@ -1,4 +1,4 @@
-import React, { useMemo, useEffect, useState } from 'react';
+import React, { useMemo, useEffect } from 'react';
 import { useParams, useLocation, useNavigate } from 'react-router-dom';
 import { ProgramProps } from '@/types';
 import { ContentLayout } from '@/containers/Layouts';
@@ -42,12 +42,21 @@ const Program: React.FC = () => {
 
   const { data, loading, error } = useFetch<ProgramProps[] | null>({
     url: 'data/data.json',
+    // if program doesn't exist trigger use fecth to get data
     shouldFetch: !program,
   });
 
+  // if program doesn't exist in state, find it from API
   const memorisedProgram = useMemo(() => {
     return program ?? data?.find((program) => program?.id === Number(programId));
   }, [program, programId, data]);
+
+  // if program doesn't exist, redirectt back to home page
+  useEffect(() => {
+    if (!loading && !memorisedProgram) {
+      navigate('/');
+    }
+  }, [memorisedProgram, loading]);
 
   const { image, description, rating, genre, title, id, type, year, language } = memorisedProgram || {};
 
@@ -61,6 +70,7 @@ const Program: React.FC = () => {
     }
   };
 
+  // keyboard event listener
   useEffect(() => {
     window.addEventListener('keydown', handleKeyDown);
     return () => {
