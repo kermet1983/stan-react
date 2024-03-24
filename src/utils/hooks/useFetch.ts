@@ -17,13 +17,16 @@ const useFetch = <T>({ url, shouldFetch = true }: FetchProps): FetchState<T> => 
   const [error, setError] = useState<Error | null>(null);
 
   useEffect(() => {
+    const abortController = new AbortController();
+    const signal = abortController.signal;
+
     const fetchData = async () => {
       if (!shouldFetch) {
         setLoading(false);
         return;
       }
       try {
-        const response = await fetch(url);
+        const response = await fetch(url, { signal });
         if (!response.ok) {
           throw new Error('Failed to fetch data');
         }
@@ -37,6 +40,10 @@ const useFetch = <T>({ url, shouldFetch = true }: FetchProps): FetchState<T> => 
     };
 
     fetchData();
+
+    return () => {
+      abortController.abort(); // Cancel request if component unmounts before fetch completes
+    };
   }, [url]);
 
   return { data, loading, error };
