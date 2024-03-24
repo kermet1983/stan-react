@@ -6,15 +6,43 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Box } from '@/components';
 import { CarouselSkeleton } from '@/components/Carousel/CarouselSkeleton';
 import Image from '@/components/Image/Image';
+import useScreenSize from '@/utils/hooks/useScreenSize';
+
+const CAROUSEL_MAX_VISIBLE_ITEMS = 6;
 
 const Home = () => {
   const { data, loading, error } = useFetch<ProgramProps[] | null>({ url: 'data/data.json' });
   const { state } = useLocation();
   const navigate = useNavigate();
+  const screenSize = useScreenSize();
+
+  // get max number of items to render based off screen size
+  const getItemsToShow = useMemo(() => {
+    let result = CAROUSEL_MAX_VISIBLE_ITEMS;
+    switch (screenSize) {
+      case 'lg':
+        result = CAROUSEL_MAX_VISIBLE_ITEMS - 1;
+        break;
+      case 'md':
+        result = CAROUSEL_MAX_VISIBLE_ITEMS - 2;
+        break;
+      case 'xs':
+      case 'sm':
+        result = CAROUSEL_MAX_VISIBLE_ITEMS - 3;
+        break;
+      default:
+        break;
+    }
+
+    return result;
+  }, [screenSize]);
+
+  // find the index of the active selected program
   const activeIndex = useMemo(() => {
     return state?.programId ? data?.findIndex((program) => program?.id === Number(state?.programId)) : 0;
   }, [data]);
 
+  // navigate to program with program ID
   const handleItemSelect = (item: ProgramProps) => {
     const selectedShowId = item?.id;
     selectedShowId && navigate(`/program/${selectedShowId}`, { state: { program: item } });
@@ -44,7 +72,7 @@ const Home = () => {
     return (
       <Box padding="0 0 0 40px">
         <Carousel
-          itemsToShow={6}
+          itemsToShow={getItemsToShow}
           activeIndex={activeIndex || 0}
           items={data}
           renderItem={renderItem}

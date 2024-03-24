@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { lazy } from 'react';
 import { useRoutes, RouteObject } from 'react-router-dom';
 import { MasterLayout } from '@containers/Layouts';
-import Home from '@pages/Home';
-import Program from '@pages/Program';
+
+const Home = lazy(() => import('@pages/Home'));
+const Program = lazy(() => import('@pages/Program'));
 
 const routes: RouteObject[] = [
   {

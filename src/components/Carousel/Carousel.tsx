@@ -4,10 +4,7 @@ import { styled } from 'styled-components';
 import { CarouselSkeletons } from './CarouselSkeleton';
 import Box from '../Box/Box';
 import { device } from '@/utils/breakpoints';
-
-const carouselItemWidth = (itemsToShow: number) => {
-  return `calc((100% / ${itemsToShow}) + ((100% / ${itemsToShow}) / ${itemsToShow}))`;
-};
+import { carouselItemWidth } from '@/utils/carousel';
 
 const StyledCarousel = styled(Box)<Pick<CarouselProps, 'itemsToShow'>>`
   display: flex;
@@ -47,23 +44,6 @@ const StyledCarousel = styled(Box)<Pick<CarouselProps, 'itemsToShow'>>`
         }
       }
     }
-    @media ${device.lg} {
-      /* border: solid 2px red; */
-      width: ${({ itemsToShow }) => carouselItemWidth(itemsToShow - 1)};
-      .carousel-item-border {
-        a {
-          padding: 0 !important;
-        }
-      }
-    }
-    @media ${device.md} {
-      /* border: solid 2px pink; */
-      width: ${({ itemsToShow }) => carouselItemWidth(itemsToShow - 2)};
-    }
-    @media ${device.sm} {
-      /* border: solid 2px orange; */
-      width: ${({ itemsToShow }) => carouselItemWidth(itemsToShow - 3)};
-    }
   }
 `;
 
@@ -80,7 +60,6 @@ const Carousel: React.FC<CarouselProps> = ({
   const safeItems = items || [];
   const startCeiling = itemsToShow - 2;
   const activeIndicator = Math.min(startCeiling, currentIndex);
-  // const activeIndicator = startCeiling > currentIndex ? currentIndex : startCeiling;
 
   // memorise the items sliced from the list of items based on the itemsToShow prop
   const memorisedVisibleItems = useMemo(() => {
@@ -90,7 +69,7 @@ const Carousel: React.FC<CarouselProps> = ({
     const itemsResult = safeItems.slice(startIndex, endIndex);
 
     return itemsResult;
-  }, [currentIndex, safeItems]);
+  }, [currentIndex, safeItems, itemsToShow]);
 
   // add event listeners for keydown event
   useEffect(() => {

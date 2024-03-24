@@ -1,26 +1,35 @@
-interface Size {
-  xs: string;
-  sm: string;
-  md: string;
-  lg: string;
-  xl: string;
-  xxl: string;
+export interface Size {
+  xs: number;
+  sm: number;
+  md: number;
+  lg: number;
+  xl: number;
+  xxl: number;
 }
 
-const size: Size = {
-  xs: '400px', // for small screen mobile
-  sm: '600px', // for mobile screen
-  md: '900px', // for tablets
-  lg: '1280px', // for laptops
-  xl: '1440px', // for desktop / monitors
-  xxl: '1920px', // for big screens
+export enum Sizes {
+  xs = 'xs',
+  sm = 'sm',
+  md = 'md',
+  lg = 'lg',
+  xl = 'xl',
+  xxl = 'xxl',
+}
+
+export const size: Size = {
+  xs: 400, // for small screen mobile
+  sm: 600, // for mobile screen
+  md: 900, // for tablets
+  lg: 1280, // for laptops
+  xl: 1440, // for desktop / monitors
+  xxl: 1920, // for big screens
 };
 
 export const device = {
-  xs: `(max-width: ${size.xs})`,
-  sm: `(max-width: ${size.sm})`,
-  md: `(max-width: ${size.md})`,
-  lg: `(max-width: ${size.lg})`,
-  xl: `(max-width: ${size.xl})`,
-  xxl: `(max-width: ${size.xxl})`,
+  xs: `(max-width: ${size.xs}px)`,
+  sm: `(max-width: ${size.sm}px)`,
+  md: `(max-width: ${size.md}px)`,
+  lg: `(max-width: ${size.lg}px)`,
+  xl: `(max-width: ${size.xl}px)`,
+  xxl: `(max-width: ${size.xxl}px)`,
 };

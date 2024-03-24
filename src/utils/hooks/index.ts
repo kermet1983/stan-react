@@ -1,3 +1,3 @@
 import useFetch from '@/utils/hooks/useFetch';
-
-export { useFetch };
+import useScreenSize from '@/utils/hooks/useScreenSize';
+export { useFetch, useScreenSize };
