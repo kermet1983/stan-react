@@ -1,7 +1,7 @@
-import React, { Suspense } from 'react';
-import Header from '../Header/Header';
 import { MasterLayoutProps } from '@/types';
 import ErrorBoundary from '@containers/ErrorBoundary/ErrorBoundary';
+import React, { Suspense } from 'react';
+import Header from '../Header/Header';
 
 const MasterLayout: React.FC<MasterLayoutProps> = ({ children }) => {
   return (

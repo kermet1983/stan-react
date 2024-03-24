@@ -1,10 +1,10 @@
 import React from 'react';
 
-import { MenuNavigation } from '@components/MenuNavigation';
-import styled from 'styled-components';
 import { Box } from '@/components';
-import { Link } from 'react-router-dom';
 import Image from '@/components/Image/Image';
+import { MenuNavigation } from '@components/MenuNavigation';
+import { Link } from 'react-router-dom';
+import styled from 'styled-components';
 
 const menuItems = [
   {

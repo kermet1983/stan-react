@@ -1,5 +1,5 @@
-import MasterLayout from './MasterLayout/MasterLayout';
-import Header from './Header/Header';
 import ContentLayout from './ContentLayout/ContentLayout';
+import Header from './Header/Header';
+import MasterLayout from './MasterLayout/MasterLayout';
 
-export { MasterLayout, Header, ContentLayout };
+export { ContentLayout, Header, MasterLayout };

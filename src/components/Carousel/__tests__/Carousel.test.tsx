@@ -1,9 +1,8 @@
-import React from 'react';
-import { render, screen, fireEvent, act } from '@testing-library/react';
-import Carousel from '../Carousel';
 import { generateMockData } from '@/__mocks__/programs.mock';
-import { ProgramProps, CarouselItemRenderProps } from '@/types';
 import Image from '@/components/Image/Image';
+import { CarouselItemRenderProps, ProgramProps } from '@/types';
+import { fireEvent, render, screen } from '@testing-library/react';
+import Carousel from '../Carousel';
 
 describe('Component: Carousel', () => {
   const items: ProgramProps[] = generateMockData();

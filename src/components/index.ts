@@ -1,6 +1,6 @@
 import AppRouter from '@components/AppRouter/AppRouter';
-import MenuNavigation from '@components/MenuNavigation/MenuNavigation';
 import Box from '@components/Box/Box';
 import Carousel from '@components/Carousel/Carousel';
+import MenuNavigation from '@components/MenuNavigation/MenuNavigation';
 
-export { AppRouter, MenuNavigation, Box, Carousel };
+export { AppRouter, Box, Carousel, MenuNavigation };

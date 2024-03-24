@@ -1,6 +1,6 @@
-import React, { lazy } from 'react';
-import { useRoutes, RouteObject } from 'react-router-dom';
 import { MasterLayout } from '@containers/Layouts';
+import React, { lazy } from 'react';
+import { RouteObject, useRoutes } from 'react-router-dom';
 
 const Home = lazy(() => import('@pages/Home'));
 const Program = lazy(() => import('@pages/Program'));

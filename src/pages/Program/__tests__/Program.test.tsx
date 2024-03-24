@@ -1,8 +1,7 @@
-import React from 'react';
-import { render, screen, fireEvent } from '@testing-library/react';
+import { generateMockData } from '@/__mocks__/programs.mock';
+import { fireEvent, render, screen } from '@testing-library/react';
 import { MemoryRouter, Route, Routes } from 'react-router-dom';
 import Program from '../';
-import { generateMockData } from '@/__mocks__/programs.mock';
 
 // Mock data
 const mockPrograms = generateMockData();

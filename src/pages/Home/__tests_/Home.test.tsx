@@ -1,9 +1,8 @@
-import React from 'react';
-import { render, screen, act } from '@testing-library/react';
+import { generateMockData } from '@/__mocks__/programs.mock';
+import { Sizes, size } from '@/utils/breakpoints';
+import { act, render, screen } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
 import Home from '../';
-import { generateMockData } from '@/__mocks__/programs.mock';
-import { size, Sizes } from '@/utils/breakpoints';
 
 const fakeItems: number[] = Array.from(Array(10).keys());
 // Mock the useFetch/useScreenSize hook

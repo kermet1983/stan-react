@@ -1,7 +1,7 @@
-import React from 'react';
-import styled from 'styled-components';
-import { NavLink } from 'react-router-dom';
 import { MenuNavigationItemProps } from '@/types';
+import React from 'react';
+import { NavLink } from 'react-router-dom';
+import styled from 'styled-components';
 import Box from '../Box/Box';
 
 const StyledMenuNavigationItem = styled(Box)`

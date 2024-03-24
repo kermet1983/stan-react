@@ -1,4 +1,3 @@
-import React from 'react';
 import StyledSkeleton from '../Skeleton/Skeleton';
 
 export const CarouselSkeleton = ({ index }: { index: string | number }) => {

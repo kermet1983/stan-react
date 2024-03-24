@@ -1,11 +1,10 @@
-import React from 'react';
 import { ThemeProvider } from 'styled-components';
 
+import App from '@/App';
+import '@/styles.css'; // Import global styles
+import { theme } from '@/theme';
 import { AppRouter } from '@components';
 import { createRoot } from 'react-dom/client';
-import App from '@/App';
-import { theme } from '@/theme';
-import '@/styles.css'; // Import global styles
 
 const container = document.getElementById('root');
 if (container) {

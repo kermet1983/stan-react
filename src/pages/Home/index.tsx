@@ -1,12 +1,11 @@
-import React, { useMemo } from 'react';
-import { useFetch } from '@/utils/hooks';
-import { Carousel } from '@/components';
-import { ProgramProps, CarouselItemRenderProps } from '@/types';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { Box } from '@/components';
+import { Box, Carousel } from '@/components';
 import { CarouselSkeleton } from '@/components/Carousel/CarouselSkeleton';
 import Image from '@/components/Image/Image';
+import { CarouselItemRenderProps, ProgramProps } from '@/types';
+import { useFetch } from '@/utils/hooks';
 import useScreenSize from '@/utils/hooks/useScreenSize';
+import { useMemo } from 'react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 
 const CAROUSEL_MAX_VISIBLE_ITEMS = 6;
 

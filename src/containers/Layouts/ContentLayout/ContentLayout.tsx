@@ -1,6 +1,6 @@
-import React from 'react';
 import { Box } from '@/components';
 import { ContentLayoutProps } from '@/types';
+import React from 'react';
 
 const ContentLayout: React.FC<ContentLayoutProps> = ({ children, ...styles }) => {
   return (

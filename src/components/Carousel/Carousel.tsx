@@ -1,10 +1,9 @@
-import React, { useEffect, useMemo, useState } from 'react';
 import { CarouselProps } from '@/types';
-import { styled } from 'styled-components';
-import { CarouselSkeletons } from './CarouselSkeleton';
-import Box from '../Box/Box';
-import { device } from '@/utils/breakpoints';
 import { carouselItemWidth } from '@/utils/carousel';
+import React, { useEffect, useMemo, useState } from 'react';
+import { styled } from 'styled-components';
+import Box from '../Box/Box';
+import { CarouselSkeletons } from './CarouselSkeleton';
 
 const StyledCarousel = styled(Box)<Pick<CarouselProps, 'itemsToShow'>>`
   display: flex;

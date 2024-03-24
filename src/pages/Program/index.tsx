@@ -1,8 +1,8 @@
-import React, { useMemo, useEffect } from 'react';
-import { useParams, useLocation, useNavigate } from 'react-router-dom';
-import { ProgramProps } from '@/types';
-import { ContentLayout } from '@/containers/Layouts';
 import Image from '@/components/Image/Image';
+import { ContentLayout } from '@/containers/Layouts';
+import { ProgramProps } from '@/types';
+import React, { useEffect, useMemo } from 'react';
+import { useLocation, useNavigate, useParams } from 'react-router-dom';
 
 import { Box } from '@/components';
 import { useFetch } from '@/utils/hooks';
