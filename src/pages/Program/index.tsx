@@ -5,11 +5,28 @@ import React, { useEffect, useMemo } from 'react';
 import { useLocation, useNavigate, useParams } from 'react-router-dom';
 
 import { Box } from '@/components';
+import { device } from '@/utils/breakpoints';
 import { useFetch } from '@/utils/hooks';
 import styled from 'styled-components';
 
 const StyledProgram = styled(Box)`
   &.program {
+    @media ${device.md} {
+      .program-image-wrapper {
+        img {
+          width: 200px !important;
+        }
+      }
+    }
+    @media ${device.sm} {
+      flex-direction: column;
+      .program-image-wrapper {
+        margin: 0 0 40px 0 !important;
+        img {
+          width: 100% !important;
+        }
+      }
+    }
     .program-title {
       h1 {
         font-size: 2rem;
@@ -18,10 +35,9 @@ const StyledProgram = styled(Box)`
       }
     }
     .program-image-wrapper {
-      width: 200;
       margin-right: 4rem;
       img {
-        max-width: 100%;
+        width: 300px;
       }
     }
     .program-details {
@@ -81,7 +97,11 @@ const Program: React.FC = () => {
   return (
     <ContentLayout>
       <StyledProgram flexDirection="row" className="program">
-        <Box className="program-image-wrapper">{image && <Image src={image} alt={title || ''} />}</Box>
+        {image && (
+          <Box className="program-image-wrapper">
+            <Image src={image} alt={title || ''} />
+          </Box>
+        )}
         <Box>
           {title && (
             <Box className="program-title">
