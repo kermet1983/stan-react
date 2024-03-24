@@ -1,8 +1,9 @@
 {
   "compilerOptions": {
+    "outDir": "dist",
     "jsx": "react-jsx",
     "module": "esnext",
-    "target": "es5",
+    "target": "es6",
     "moduleResolution": "node",
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
@@ -25,6 +26,6 @@
       "@hooks/*": ["./utils/hooks/*"]
     }
   },
-  "include": ["src"],
+  "include": ["src/**/*"],
   "exclude": ["node_modules"]
 }
