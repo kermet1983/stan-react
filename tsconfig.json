@@ -12,9 +12,15 @@
     "noEmit": true,
     "isolatedModules": true,
     "resolveJsonModule": true,
-    "baseUrl": "src",
+    "baseUrl": "./src",
     "paths": {
-      "*": ["src/*"]
+      "@/*": ["./*"],
+      "@components": ["./components"],
+      "@components/*": ["./components/*"],
+      "@containers": ["./containers"],
+      "@containers/*": ["./containers/*"],
+      "@pages": ["./pages"],
+      "@pages/*": ["./pages/*"]
     }
   },
   "include": ["src"],

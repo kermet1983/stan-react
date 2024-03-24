@@ -9,6 +9,12 @@ module.exports = {
   },
   resolve: {
     extensions: ['.ts', '.tsx', '.js', '.json'],
+    alias: {
+      '@': path.resolve(__dirname, './src'),
+      '@components': path.resolve(__dirname, './src/components'),
+      '@containers': path.resolve(__dirname, './src/containers'),
+      '@pages': path.resolve(__dirname, './src/pages'),
+    },
   },
   module: {
     rules: [
@@ -23,6 +29,7 @@ module.exports = {
       },
       {
         test: /\.svg$/,
+        // test: /\.(jpe?g|gif|png|svg)$/i,
         use: ['file-loader'],
       },
     ],
@@ -34,7 +41,7 @@ module.exports = {
   ],
   devServer: {
     static: {
-      directory: path.join(__dirname, 'dist'),
+      directory: path.join(__dirname, 'public'),
     },
     hot: true,
     port: 3000,
