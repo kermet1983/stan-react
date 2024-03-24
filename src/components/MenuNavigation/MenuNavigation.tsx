@@ -1,6 +1,6 @@
 import React from 'react';
 import MenuNavigationItem from '@components/MenuNavigation/MenuNavigationItem';
-import { MenuNavigationProps } from './types';
+import { MenuNavigationProps } from '@/types';
 import Box from '../Box/Box';
 
 const MenuNavigation: React.FC<MenuNavigationProps> = ({ items }) => {

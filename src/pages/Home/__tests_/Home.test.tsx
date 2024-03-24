@@ -1,13 +1,14 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
-import { MemoryRouter, Route } from 'react-router-dom';
+import { MemoryRouter } from 'react-router-dom';
 import Home from '../';
+import { generateMockData } from '@/__mocks__/programs.mock';
 
 const fakeItems: number[] = Array.from(Array(10).keys());
 // Mock the useFetch hook
 jest.mock('@/utils/hooks', () => ({
   useFetch: jest.fn(() => ({
-    data: fakeItems.map((item) => ({ id: item, image: `image${item}.jpg`, title: `Title ${item}` })),
+    data: generateMockData(),
     loading: false,
     error: null,
   })),

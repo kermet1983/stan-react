@@ -79,3 +79,11 @@ export interface MenuNavigationItemProps {
 export interface MenuNavigationProps {
   items: MenuNavigationItemProps[];
 }
+
+export interface ImageProps {
+  src: string;
+  alt: string;
+  className?: string;
+  style?: React.CSSProperties;
+  renderLoading?: () => JSX.Element;
+}

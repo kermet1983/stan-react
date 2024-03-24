@@ -1,3 +1,3 @@
-import useFetch from '@hooks/useFetch';
+import useFetch from '@/utils/hooks/useFetch';
 
 export { useFetch };
