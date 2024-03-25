@@ -2,17 +2,17 @@
 
 ## Tech Stack
 
-TypeScript,
-Babel,
-Webpack,
-Jest,
-React,
-Styled Components,
-React Router
+  - [TypeScript](https://www.typescriptlang.org)
+  - [Babel](https://babeljs.io)
+  - [Webpack](https://webpack.js.org)
+  - [Jest](https://jestjs.io) / [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/)
+  - [React 18](https://facebook.github.io/react/)
+  - [Styled Components](https://www.styledcomponents.com)
+  - [React Router](https://www.reactrouter.com)
 
 ## Installation Instructions:
 
-This project used Yarn
+This project uses Yarn
 
 ```bash
 1. Pull Repo
