@@ -5,6 +5,7 @@ import React, { useEffect, useMemo } from 'react';
 import { useLocation, useNavigate, useParams } from 'react-router-dom';
 
 import { Box } from '@/components';
+import Skeleton from '@/components/Skeleton/Skeleton';
 import { device } from '@/utils/breakpoints';
 import { useFetch } from '@/utils/hooks';
 import styled from 'styled-components';
@@ -22,6 +23,9 @@ const StyledProgram = styled(Box)`
       flex-direction: column;
       .program-image-wrapper {
         margin: 0 0 40px 0 !important;
+        .image-skeleton {
+          width: 100% !important;
+        }
         img {
           width: 100% !important;
         }
@@ -94,23 +98,46 @@ const Program: React.FC = () => {
     };
   }, []);
 
+  const renderContent = () => {
+    return loading ? (
+      <>
+        <Box margin="0 0 20px 0">
+          <Skeleton width="50%" height="40px" />
+        </Box>
+        <Box margin="0 0 20px 0">
+          <Skeleton width="70%" height="30px" />
+        </Box>
+        <Box margin="0 0 20px 0">
+          <Skeleton width="100%" height="100px" />
+        </Box>
+      </>
+    ) : (
+      <>
+        {title && (
+          <Box className="program-title">
+            <h1>{title}</h1>
+          </Box>
+        )}
+        {memorisedProgramDetails && <Box className="program-details">{memorisedProgramDetails}</Box>}
+        <Box className="program-description">{description}</Box>
+      </>
+    );
+  };
+
+  const renderImage = () => {
+    let element = image && <Image src={image} alt={title || ''} />;
+    if (loading) {
+      element = <Skeleton className="image-skeleton" width="300px" height="300px" />;
+    }
+
+    return <Box className="program-image-wrapper">{element}</Box>;
+  };
+
   return (
     <ContentLayout>
       <StyledProgram flexDirection="row" className="program">
-        {image && (
-          <Box className="program-image-wrapper">
-            <Image src={image} alt={title || ''} />
-          </Box>
-        )}
-        <Box>
-          {title && (
-            <Box className="program-title">
-              <h1>{title}</h1>
-            </Box>
-          )}
-          {memorisedProgramDetails && <Box className="program-details">{memorisedProgramDetails}</Box>}
-          <Box className="program-description">{description}</Box>
-        </Box>
+        {renderImage()}
+        <Box flexGrow={1}>{renderContent()}</Box>
       </StyledProgram>
     </ContentLayout>
   );

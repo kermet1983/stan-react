@@ -11,12 +11,21 @@ interface BoxProps {
   alignItems?: 'stretch' | 'flex-start' | 'center' | 'flex-end' | 'baseline';
   alignContent?: 'flex-start' | 'center' | 'flex-end' | 'space-between' | 'space-around' | 'space-evenly' | 'stretch';
   justifyContent?: 'flex-start' | 'center' | 'flex-end' | 'space-between' | 'space-around' | 'space-evenly';
+  flexGrow?: number;
 }
 
 const Box = styled.div.withConfig({
   // ignore these props setting attr on element to avoid warning "Warning: React does not recognize the xYz prop"
   shouldForwardProp: (prop) =>
-    !['flexDirection', 'backgroundColor', 'alignItems', 'alignContent', 'justifyContent', 'itemsToShow'].includes(prop),
+    ![
+      'flexDirection',
+      'backgroundColor',
+      'alignItems',
+      'alignContent',
+      'justifyContent',
+      'itemsToShow',
+      'flexGrow',
+    ].includes(prop),
 })<BoxProps>`
   display: flex;
   width: ${(props) => props.width || 'auto'};
@@ -26,12 +35,13 @@ const Box = styled.div.withConfig({
   padding: ${(props) => props.padding || '0'};
   margin: ${(props) => props.margin || '0'};
   ${(props) => {
-    const { flexDirection, alignItems, alignContent, justifyContent } = props;
+    const { flexDirection, alignItems, alignContent, justifyContent, flexGrow } = props;
     const customStyles: Record<string, any> = {};
     customStyles['flex-direction'] = flexDirection ?? 'column';
     if (alignItems) customStyles['align-items'] = alignItems;
     if (alignContent) customStyles['align-content'] = alignContent;
     if (alignItems) customStyles['justify-content'] = justifyContent;
+    if (flexGrow) customStyles['flex-grow'] = `${flexGrow}`;
 
     return customStyles;
   }}
