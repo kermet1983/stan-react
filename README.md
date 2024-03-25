@@ -43,7 +43,7 @@ yarn build
 
 ## Technical and Architectural Choices
 
-These choices were made to create a robust, maintainable, and efficient web application. Modern and powerful technical choices provide a component-based architecture that boosts UI reusability and performance, ideal for scalable applications. Strong typing capabilities, enhancing code quality, maintainability, and developer collaboration. Well tested pages, components and functionality ensure reliability whilst being able to use that latest and greatest Javascript features across various browsers. Webpack optimises bundling, improving load times and resource management whilst enhancing the developer experience. The router technology is the defacto in React applications that are not using Next.js (SSR). Easy enchancement of CSS management in React components, allowing dynamic styling and reducing style conflicts.
+These choices were made to create a robust, maintainable, and efficient web application. Modern and powerful technical choices provide a component-based architecture that boosts UI reusability and performance, ideal for scalable applications. Strong typing capabilities, enhancing code quality, maintainability, and developer collaboration. Well tested pages, components and functionality ensure reliability whilst being able to use that latest and greatest Javascript features across various browsers. Webpack optimises bundling with techniques such as code-splitting and tree shaking, improving load times and resource management whilst enhancing the developer experience. The router technology is the defacto in React applications that are not using Next.js (SSR). Easy enchancement of CSS management in React components, allowing dynamic styling and reducing style conflicts.
 
 
 ## Potential Improvements
@@ -54,6 +54,8 @@ These choices were made to create a robust, maintainable, and efficient web appl
 - **Progressive Web App (PWA)**: Enhancing the application to be a PWA for offline support, faster load times, and a more native-like experience on mobile devices.
 
 - **Accessibility/Performace Improvements**: Conducting an accessibility/performance audit and implementing recommended changes to ensure the application is usable by everyone.
+
+- **Webpack Bundling**: Maximise webpack optimisations by using splitChunks to split the application into smaller chunks to load
 
 ## Considerations with More Time
 
